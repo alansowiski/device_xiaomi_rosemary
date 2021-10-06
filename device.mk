@@ -292,4 +292,4 @@ PRODUCT_PACKAGES += \
     TetheringConfigOverlay
 
 # Inherit vendor
-$(call inherit-product, vendor/xiaomi/begonia/begonia-vendor.mk)
+$(call inherit-product, vendor/xiaomi/rosemary/rosemary-vendor.mk)
