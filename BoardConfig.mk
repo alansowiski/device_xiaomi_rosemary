@@ -100,6 +100,9 @@ TARGET_PROVIDES_MTK_PROPRIETARY := true
 TARGET_PROVIDES_MEDIATEK_IMS_STACK := true
 TARGET_PROVIDES_MTK_OSS_CONNECTIVITY := true
 
+# MTK Soong
+include device/mediatek/common/build/core/soong_config.mk
+
 ######PARTITION SIZE NOT UPDATED!!!!!##*#
 # Partitions 
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -144,6 +147,8 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := 2021-07-01
 
 # Sepolicy
+include device/mediatek/sepolicy_vndr/SEPolicy.mk
+
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
