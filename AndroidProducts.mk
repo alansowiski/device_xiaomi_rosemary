@@ -1,7 +1,7 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_rosemary.mk
+    $(LOCAL_DIR)/exthm_rosemary.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_rosemary-user \
-    aosp_rosemary-userdebug \
-    aosp_rosemary-eng
+    exthm_rosemary-user \
+    exthm_rosemary-userdebug \
+    exthm_rosemary-eng
