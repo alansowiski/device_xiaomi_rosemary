@@ -6,6 +6,8 @@
 
 DEVICE_PATH := device/xiaomi/rosemary
 
+ALLOW_MISSING_DEPENDENCIES := true
+
 BUILD_BROKEN_DUP_RULES := true
 
 # Architecture
@@ -66,7 +68,6 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_SOURCE := kernel/xiaomi/rosemary
@@ -95,17 +96,6 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
-# MTK Rules
-MTK_HARDWARE := true
-BOARD_GLOBAL_CLFAGS += -DMTK_HARDWARE
-TARGET_PROVIDES_MTK_PROPRIETARY := true
-TARGET_PROVIDES_MEDIATEK_IMS_STACK := true
-TARGET_PROVIDES_MTK_OSS_CONNECTIVITY := true
-
-# MTK Soong
-include device/mediatek/common/build/core/soong_config.mk
-
-######PARTITION SIZE NOT UPDATED!!!!!##*#
 # Partitions 
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
@@ -154,6 +144,8 @@ include device/mediatek/sepolicy_vndr/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+SEPOLICY_IGNORE_NEVERALLOWS := true
 
 # Wi-Fi
 #BOARD_WLAN_DEVICE := mt66xx

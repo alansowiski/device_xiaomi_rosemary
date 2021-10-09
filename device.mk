@@ -9,13 +9,6 @@ DEVICE_PATH := device/xiaomi/rosemary
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# MTK Vendor Repos
-MTK_PLATFORM_FOLDER := mt6785
-$(call inherit-product, vendor/mediatek/ims/mtk-ims.mk)
-$(call inherit-product, vendor/mediatek/ims/mtk-engi.mk)
-$(call inherit-product, vendor/mediatek/ims/mtk-rill.mk)
-$(call inherit-product, device/mediatek/common/target.mk)
-
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
