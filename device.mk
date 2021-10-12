@@ -113,6 +113,13 @@ PRODUCT_COPY_FILES += \
 
 # Dynamic Partitions
 BOARD_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_BUILD_SUPER_PARTITION := false
+
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
+    fastbootd
 
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
@@ -136,6 +143,21 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script
 
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-impl.recovery \
+    android.hardware.boot@1.1-impl
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
+PRODUCT_PACKAGES += \
+    otapreopt_script \
+    update_engine \
+    update_verifier \
+    update_engine_sideload \
+    bootctrl.$(PRODUCT_PLATFORM).recovery
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
@@ -153,6 +175,12 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl:64 \
     android.hardware.drm@1.0-service-lazy \
     android.hardware.drm@1.3-service.clearkey
+
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
+    fastbootd
 
 # Fingerprint
 PRODUCT_PACKAGES += \
