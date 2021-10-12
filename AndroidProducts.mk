@@ -1,7 +1,7 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/exthm_rosemary.mk
+    $(LOCAL_DIR)/lineage_rosemary.mk
 
 COMMON_LUNCH_CHOICES := \
-    exthm_rosemary-user \
-    exthm_rosemary-userdebug \
-    exthm_rosemary-eng
+    lineage_rosemary-user \
+    lineage_rosemary-userdebug \
+    lineage_rosemary-eng
