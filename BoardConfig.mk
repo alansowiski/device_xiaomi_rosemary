@@ -6,6 +6,8 @@
 
 DEVICE_PATH := device/xiaomi/rosemary
 
+ALLOW_MISSING_DEPENDENCIES := true
+
 BUILD_BROKEN_DUP_RULES := true
 
 # A/B
@@ -13,13 +15,10 @@ AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS := \
     boot \
-    dtbo \
     vendor \
     product \
     system \
     vbmeta \
-    vbmeta_system \
-    vendor_boot
 
 # Architecture
 TARGET_ARCH := arm64
@@ -112,6 +111,7 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 
 # Partitions (Dynamic)
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
@@ -124,7 +124,7 @@ TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS := true
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
